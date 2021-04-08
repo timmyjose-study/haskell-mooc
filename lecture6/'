@@ -1,0 +1,21 @@
+module Chapter6 where
+
+data Color = Black | White deriving Show
+
+instance Eq Color where
+  Black == Black = True
+  White == White = True
+  _ == _ = False
+
+class Size a where
+  empty :: Bool
+  size :: a -> Int
+  sameSize :: a -> a -> Bool
+
+instance Size Int where
+  empty = 0
+  size  = abs 
+
+instance Size [a] where
+  size = length
+
